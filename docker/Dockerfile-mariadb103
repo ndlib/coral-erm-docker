@@ -1,4 +1,4 @@
-FROM mariadb
+FROM mariadb:10.3
 
 COPY mysql-healthcheck /usr/local/bin/
 

@@ -1,0 +1,14 @@
+FROM php:5.6-apache
+RUN apt-get update && apt-get install chromium git unzip -y
+RUN docker-php-ext-install gettext mysqli
+
+COPY config/php.ini /tmp/php.ini
+RUN cat /tmp/php.ini >> /usr/local/etc/php/conf.d/php.ini
+RUN rm /tmp/php.ini
+
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+RUN cd /var/www/html/ && git clone -b "v3.0.0" https://github.com/coral-erm/coral.git
+RUN chmod 777 -R /var/www/html/coral/ && echo -e "DocumentRoot \"/web\" \nServerName localhost \nLoadModule mpm_event_module /usr/lib/apache2/mod_mpm_event.so \nListen 80" | tee /etc/apache2/httpd.conf
+
+CMD apachectl -DFOREGROUND

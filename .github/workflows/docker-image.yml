@@ -14,6 +14,8 @@ jobs:
     - name: Build the Coral image
       run:  docker build . --file docker/Dockerfile --tag coral-erm:$(date +%s)
     - name: Build the Coral Database Docker image
-      run:  docker build . --file docker/Dockerfile.mariadb103 --tag coral-erm-db:$(date +%s)
+      run: |
+        cd docker
+        docker build . --file docker/Dockerfile.mariadb103 --tag coral-erm-db:$(date +%s)
     - name: Build the Coral Web Docker image
       run:  docker build . --file docker/Dockerfile.php56 --tag coral-erm-web:$(date +%s)

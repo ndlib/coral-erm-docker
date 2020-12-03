@@ -12,9 +12,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the Coral image
-      run: |
-        cd docker
-        docker build . --file Dockerfile --tag coral-erm:$(date +%s)
+      run:  docker build . --file docker/Dockerfile --tag coral-erm:$(date +%s)
     - name: Build the Coral Database Docker image
       run: |
         cd docker

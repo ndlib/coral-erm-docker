@@ -1,0 +1,21 @@
+name: Docker Image CI
+
+on:
+  pull_request:
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-20.04
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build the Coral image
+      run:  docker build . --file docker/Dockerfile --tag coral-erm:$(date +%s)
+    - name: Build the Coral Database Docker image
+      run: |
+        cd docker
+        docker build . --file Dockerfile.mariadb103 --tag coral-erm-db:$(date +%s)
+    - name: Build the Coral Web Docker image
+      run:  docker build . --file docker/Dockerfile.php56 --tag coral-erm-web:$(date +%s)

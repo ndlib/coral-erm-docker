@@ -3,7 +3,7 @@ services:
   db:
     build:
       context: ./docker/
-      dockerfile: Dockerfile-mariadb103
+      dockerfile: Dockerfile.mariadb103
     ports:
       - "3306:3306"
     volumes:
@@ -20,7 +20,7 @@ services:
   web:
     build:
       context: .
-      dockerfile: docker/Dockerfile-php56
+      dockerfile: docker/Dockerfile.php56
     ports:
       - '8080:80'
     links:

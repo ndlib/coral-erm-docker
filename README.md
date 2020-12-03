@@ -44,7 +44,7 @@ For those who are members of [GitHub's ndlib Organization](https://github.com/nd
 
 ### The containers are running: Now What?
 
- Once the containers are running, you can access the CORAL-ERM installation page by visiting http://localhost:8080/coral/ and step through the installation - the documentation for this is located on the [official CORAL-ERM page](http://docs.coral-erm.org/en/latest/install.html).
+ Once the containers are running, you can access the CORAL-ERM installation page by visiting [Localhost](http://localhost:8080/coral/) and step through the installation - the documentation for this is located on the [official CORAL-ERM page](http://docs.coral-erm.org/en/latest/install.html).
 
 ### What needs to be done outside of docker-compose?
 
